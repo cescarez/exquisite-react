@@ -16,15 +16,15 @@ const Game = () => {
     }
   }).join(' ');
 
-  const onLineSubmit = (newLine) => {
+  const lineSubmitCallback = (newLine) => {
     const newIndex = currentIndex + 1
-
     setIndex(newIndex);
+
     const newLines = [...lines, newLine];
     setLines(newLines);
   }
 
-  const onRevealPoem = () => {
+  const revealPoemCallback = () => {
 
   }
 
@@ -42,9 +42,9 @@ const Game = () => {
 
       <RecentSubmission submission={lines[lines.length-1]} />    
 
-      <PlayerSubmissionForm index={currentIndex} sendSubmission={onLineSubmit} fields={FIELDS} /> 
+      <PlayerSubmissionForm index={currentIndex} sendSubmission={lineSubmitCallback} fields={FIELDS} /> 
 
-      <FinalPoem /> {/* isSubmitted, submissions, revealPoem() */}
+      <FinalPoem isSubmitted={false} submissions={lines} revealPoem={revealPoemCallback} />
 
     </div>
   );
@@ -55,28 +55,28 @@ const FIELDS = [
   'The',
   {
     key: 'adj1',
-    placeholder: 'adjective',
+    placeholder: 'adjective1',
   },
   {
     key: 'noun1',
-    placeholder: 'noun',
+    placeholder: 'noun1',
   },
   {
-    key: 'adv',
-    placeholder: 'adverb',
+    key: 'adverb1',
+    placeholder: 'adverb1',
   },
   {
-    key: 'verb',
-    placeholder: 'verb',
+    key: 'verb1',
+    placeholder: 'verb1',
   },
   'the',
   {
     key: 'adj2',
-    placeholder: 'adjective',
+    placeholder: 'adjective2',
   },
   {
     key: 'noun2',
-    placeholder: 'noun',
+    placeholder: 'noun2',
   },
   '.',
 ];

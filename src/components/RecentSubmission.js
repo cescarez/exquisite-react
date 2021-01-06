@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './RecentSubmission.css';
 
-const RecentSubmission = (props) => {
+const RecentSubmission = ({submission}) => {
   return (
     <div className="RecentSubmission">
       <h3>The Most Recent Submission</h3>

@@ -39,74 +39,43 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
     sendSubmission(newLine);
 
     setFormFields({
-      key: `line${index}`,
+      // key: `line${index}`,
       adj1: '',
       noun1: '',
-      adv: '',
-      verb: '',
+      adverb1: '',
+      verb1: '',
       adj2: '',
       noun2: '',
     });
   }
 
+  const generateInputFields = (fields) => {
+    return( fields.map((field) => {
+      if (field.key) {
+        return (
+          <input 
+            type='text' 
+            value={formFields[field.key]}
+            name={field.key} 
+            placeholder={field.placeholder}
+            onChange={onInputChange}
+          />
+        );
+      } else {
+        return (<div>{field}</div>);
+      }
+    })
+    )
+  }
+
   return (
     <div className="PlayerSubmissionForm">
-      <h3>Player Submission Form for Player #{  }</h3>
+      <h3>Player Submission Form for Player #{index}</h3>
 
       <form className="PlayerSubmissionForm__form" onSubmit={onLineSubmit} >
 
         <div className="PlayerSubmissionForm__poem-inputs">
-          <div>The</div>
-          <input 
-            type='text' 
-            value={formFields.adj1}
-            name={fields[1].key} 
-            placeholder={fields[1].placeholder}
-            // key={`line${props.index}_${fields[1][key]}`}
-            onChange={onInputChange}
-          />
-          <input 
-            type='text' 
-            value={formFields.noun1}
-            name={fields[2].key} 
-            placeholder={fields[2].placeholder}
-            // key={`line${props.index}_${fields[2][key]}`}
-            onChange={onInputChange}
-          />
-          <input 
-            type='text' 
-            value={formFields.adv}
-            name={fields[3].key} 
-            placeholder={fields[3].placeholder}
-            // key={`line${props.index}_${fields[3][key]}`}
-            onChange={onInputChange}
-          />
-          <input 
-            type='text' 
-            value={formFields.verb}
-            name={fields[4].key} 
-            placeholder={fields[4].placeholder}
-            // key={`line${props.index}_${fields[4][key]}`}
-            onChange={onInputChange}
-          />
-          <div>the</div>
-          <input 
-            type='text' 
-            value={formFields.adj2}
-            name={fields[6].key} 
-            placeholder={fields[6].placeholder}
-            // key={`line${props.index}_${fields[6][key]}`}
-            onChange={onInputChange}
-          />
-          <input 
-            type='text' 
-            value={formFields.noun2}
-            name={fields[7].key} 
-            placeholder={fields[7].placeholder}
-            // key={`line${props.index}_${fields[7][key]}`}
-            onChange={onInputChange}
-          />
-          <div>.</div>
+          {generateInputFields(fields)}
         </div>
 
         <div className="PlayerSubmissionForm__submit">
