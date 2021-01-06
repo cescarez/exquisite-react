@@ -22,11 +22,11 @@ const Game = () => {
     setIndex(newIndex);
     const newLines = [...lines, newLine];
     setLines(newLines);
-    console.log(newLines);
   }
-   const onRevealPoem = () => {
 
-   }
+  const onRevealPoem = () => {
+
+  }
 
   return (
     <div className="Game">

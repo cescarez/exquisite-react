@@ -27,6 +27,14 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
   const onLineSubmit = (event) => {
     event.preventDefault();
     const newLine = 
+      'The ' + 
+      formFields.adj1 + ' ' +
+      formFields.noun2 + ' ' +
+      formFields.adv + ' ' +
+      formFields.verb + ' ' +
+      'the ' +
+      formFields.adj2 + ' ' +
+      formFields.noun2 + '.';
 
     sendSubmission(newLine);
 
