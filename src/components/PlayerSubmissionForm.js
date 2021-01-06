@@ -26,15 +26,21 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
   //"The adjective noun adverb verb the adjective noun"
   const onLineSubmit = (event) => {
     event.preventDefault();
-    const newLine = 
-      'The ' + 
-      formFields.adj1 + ' ' +
-      formFields.noun2 + ' ' +
-      formFields.adv + ' ' +
-      formFields.verb + ' ' +
-      'the ' +
-      formFields.adj2 + ' ' +
-      formFields.noun2 + '.';
+    const newLine = fields.map((field)=> {
+      if (field.key) {
+        return formFields[field.key];
+      } else {
+        return field;
+      }
+    }).join(' ');
+      // 'The ' + 
+      // formFields.adj1 + ' ' +
+      // formFields.noun2 + ' ' +
+      // formFields.adv + ' ' +
+      // formFields.verb + ' ' +
+      // 'the ' +
+      // formFields.adj2 + ' ' +
+      // formFields.noun2 + '.';
 
     sendSubmission(newLine);
 

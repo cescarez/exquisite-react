@@ -22,6 +22,7 @@ const Game = () => {
 
     const newLines = [...lines, newLine];
     setLines(newLines);
+    console.log(newLines)
   }
 
   const revealPoemCallback = () => {
