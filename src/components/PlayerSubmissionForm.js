@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './PlayerSubmissionForm.css';
 
-const PlayerSubmissionForm = (props) => {
+const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
 
   const [formFields, setFormFields] = useState({
     adj1: '',
@@ -14,7 +14,7 @@ const PlayerSubmissionForm = (props) => {
     noun2: '',
   });
 
-  const onInputChange = (event) {
+  const onInputChange = (event) => {
     setFormFields({
       ...formFields, 
       [event.target.name]: event.target.value,
@@ -27,16 +27,18 @@ const PlayerSubmissionForm = (props) => {
   const onLineSubmit = (event) => {
     event.preventDefault();
     const newLine = 
-      'The ' + 
-      formFields.adj1 + ' ' +
-      formFields.noun2 + ' ' +
-      formFields.adv + ' ' +
-      formFields.verb + ' ' +
-      'the ' +
-      formFields.adj2 + ' ' +
-      formFields.noun2 + '.';
-    
-    props.sendSubmission(newLine);
+
+    sendSubmission(newLine);
+
+    setFormFields({
+      key: `line${index}`,
+      adj1: '',
+      noun1: '',
+      adv: '',
+      verb: '',
+      adj2: '',
+      noun2: '',
+    });
   }
 
   return (
@@ -45,30 +47,58 @@ const PlayerSubmissionForm = (props) => {
 
       <form className="PlayerSubmissionForm__form" onSubmit={onLineSubmit} >
 
-
         <div className="PlayerSubmissionForm__poem-inputs">
-
-
+          <div>The</div>
           <input 
             type='text' 
-            index='1'
-            name={FIELDS[1][key]} 
             value={formFields.adj1}
-            key={`line${props.index}_adj1`}
-            // placeholder={FIELDS[1][placeholder]}
+            name={fields[1].key} 
+            placeholder={fields[1].placeholder}
+            // key={`line${props.index}_${fields[1][key]}`}
             onChange={onInputChange}
           />
-
           <input 
-            name='line' 
-            value='adjective'
             type='text' 
-            placeholder='Roses are red...' 
-            key=''
+            value={formFields.noun1}
+            name={fields[2].key} 
+            placeholder={fields[2].placeholder}
+            // key={`line${props.index}_${fields[2][key]}`}
+            onChange={onInputChange}
           />
-
-
-
+          <input 
+            type='text' 
+            value={formFields.adv}
+            name={fields[3].key} 
+            placeholder={fields[3].placeholder}
+            // key={`line${props.index}_${fields[3][key]}`}
+            onChange={onInputChange}
+          />
+          <input 
+            type='text' 
+            value={formFields.verb}
+            name={fields[4].key} 
+            placeholder={fields[4].placeholder}
+            // key={`line${props.index}_${fields[4][key]}`}
+            onChange={onInputChange}
+          />
+          <div>the</div>
+          <input 
+            type='text' 
+            value={formFields.adj2}
+            name={fields[6].key} 
+            placeholder={fields[6].placeholder}
+            // key={`line${props.index}_${fields[6][key]}`}
+            onChange={onInputChange}
+          />
+          <input 
+            type='text' 
+            value={formFields.noun2}
+            name={fields[7].key} 
+            placeholder={fields[7].placeholder}
+            // key={`line${props.index}_${fields[7][key]}`}
+            onChange={onInputChange}
+          />
+          <div>.</div>
         </div>
 
         <div className="PlayerSubmissionForm__submit">

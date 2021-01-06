@@ -20,8 +20,13 @@ const Game = () => {
     const newIndex = currentIndex + 1
 
     setIndex(newIndex);
-    setLines([...lines, newLine]);
+    const newLines = [...lines, newLine];
+    setLines(newLines);
+    console.log(newLines);
   }
+   const onRevealPoem = () => {
+
+   }
 
   return (
     <div className="Game">
