@@ -4,7 +4,6 @@ import PlayerSubmissionForm from './PlayerSubmissionForm';
 import FinalPoem from './FinalPoem';
 import RecentSubmission from './RecentSubmission';
 
-
 const Game = () => {
   const [currentIndex, setIndex] = useState(1);
   const [lines, setLines] = useState([]);
@@ -33,7 +32,7 @@ const Game = () => {
   
   const revealPoemCallback = () => {
     setSubmitted(true);
-    // console.log(`submitted in Game: ${submitted}`); //delete before submission
+    console.log(`submitted in Game: ${submitted}`); //delete before submission
   }
 
   return (
