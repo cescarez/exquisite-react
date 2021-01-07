@@ -41,7 +41,7 @@ const Game = () => {
         { exampleFormat }
       </p>
 
-      { lines.length > 0 ? <RecentSubmission submission={lines[lines.length-1]} /> : <div></div> }    
+      { (lines.length > 0 && !submitted) ? <RecentSubmission submission={lines[lines.length-1]} /> : <div></div> }    
 
       { submitted ? <div></div> : <PlayerSubmissionForm index={currentIndex} sendSubmission={lineSubmitCallback} fields={FIELDS} />  }
 
