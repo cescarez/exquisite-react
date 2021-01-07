@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 
 import FinalPoem from './FinalPoem';
 
-describe.skip('FinalPoem', () => {
+describe('FinalPoem', () => {
   describe('before the poem is finished', () => {
     test('it renders with a button when isSubmitted is false', () => {
       // Act
