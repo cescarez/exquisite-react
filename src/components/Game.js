@@ -7,6 +7,7 @@ import RecentSubmission from './RecentSubmission';
 const Game = () => {
   const [currentIndex, setIndex] = useState(1);
   const [lines, setLines] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
 
   const exampleFormat = FIELDS.map((field) => {
     if (field.key) {
@@ -22,11 +23,23 @@ const Game = () => {
 
     const newLines = [...lines, newLine];
     setLines(newLines);
-    console.log(newLines)
+
+    console.log(newLines); //delete before submission
   }
-
+  
   const revealPoemCallback = () => {
+    setSubmitted(true);
+    console.log(`submitted in Game: ${submitted}`); //delete before submission
 
+    return (
+      <div className="FinalPoem__revealed-poem-container">
+        {
+          lines.forEach((line) => {
+            return <p>{line}</p>
+          })
+        }
+      </div>
+    );
   }
 
   return (
@@ -45,7 +58,7 @@ const Game = () => {
 
       <PlayerSubmissionForm index={currentIndex} sendSubmission={lineSubmitCallback} fields={FIELDS} /> 
 
-      <FinalPoem isSubmitted={false} submissions={lines} revealPoem={revealPoemCallback} />
+      <FinalPoem isSubmitted={submitted} submissions={lines} revealPoem={revealPoemCallback} />
 
     </div>
   );

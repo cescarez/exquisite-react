@@ -2,18 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './FinalPoem.css';
 
-const FinalPoem = (props) => {
+const FinalPoem = ({isSubmitted, submissions, revealPoem}) => {
+
+  // const onRevealPoem = (event) => {
+  //   // event.preventDefault();
+  //   return ();
+  // }
+
+  const revealButton = () => {
+    return (
+      <div className="FinalPoem__reveal-btn-container">
+        <input type="button" value="We are finished: Reveal the Poem" className="FinalPoem__reveal-btn" onClick={revealPoem} />
+      </div>
+    );
+  }
+
+  const finalPoem = () => {
+    return (
+      <section className="FinalPoem__revealed-poem-container">
+        {revealPoem}
+      </section>
+    );
+  }
 
   return (
     <div className="FinalPoem">
       <section className="FinalPoem__poem">
         <h3>Final Poem</h3>
-
+        { isSubmitted ? finalPoem : revealButton }
       </section>
-
-      <div className="FinalPoem__reveal-btn-container">
-        <input type="button" value="We are finished: Reveal the Poem" className="FinalPoem__reveal-btn" />
-      </div>
+      { isSubmitted ? finalPoem : revealButton }
     </div>
   );
 }
