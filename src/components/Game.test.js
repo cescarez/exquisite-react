@@ -37,7 +37,7 @@ const FIELDS = [
 
 const INPUT_FIELDS = FIELDS.filter((element) => typeof element !== 'string');
 
-describe.skip('Game', () => {
+describe('Game', () => {
 
   describe('Wave 1:  Rendering Game', () => {
 
