@@ -20,7 +20,13 @@ const FinalPoem = ({isSubmitted, submissions, revealPoem}) => {
   const finalPoem = () => {
     return (
       <section className="FinalPoem__revealed-poem-container">
-        {revealPoem}
+        <div className="FinalPoem__revealed-poem-container">
+          {
+            submissions.map((line) => {
+              return <p>{line}</p>
+            })
+          }
+        </div>
       </section>
     );
   }
@@ -29,9 +35,8 @@ const FinalPoem = ({isSubmitted, submissions, revealPoem}) => {
     <div className="FinalPoem">
       <section className="FinalPoem__poem">
         <h3>Final Poem</h3>
-        { isSubmitted ? finalPoem : revealButton }
       </section>
-      { isSubmitted ? finalPoem : revealButton }
+      { isSubmitted ? finalPoem() : revealButton() }
     </div>
   );
 }

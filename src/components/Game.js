@@ -18,6 +18,9 @@ const Game = () => {
   }).join(' ');
 
   const lineSubmitCallback = (newLine) => {
+    //cannot add a line if the final poem has already been revealed
+    if (submitted) {return};
+
     const newIndex = currentIndex + 1
     setIndex(newIndex);
 
@@ -30,16 +33,6 @@ const Game = () => {
   const revealPoemCallback = () => {
     setSubmitted(true);
     console.log(`submitted in Game: ${submitted}`); //delete before submission
-
-    return (
-      <div className="FinalPoem__revealed-poem-container">
-        {
-          lines.forEach((line) => {
-            return <p>{line}</p>
-          })
-        }
-      </div>
-    );
   }
 
   return (
