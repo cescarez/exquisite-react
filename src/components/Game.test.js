@@ -123,7 +123,7 @@ describe('Game', () => {
         expect(screen.getByText(/Final Poem/i)).toBeInTheDocument();
       });
 
-      test('Adding 2 lines to the poem and then revealing it', () => {
+      test.skip('Adding 2 lines to the poem and then revealing it', () => {
         const line1 = ['big', 'cat', 'abruptly', 'eats', 'tasty', 'dogfood'];
         const line2 = ['small', 'pooch', 'slowly', 'whines', 'annoying', 'pest'];
       
@@ -166,7 +166,7 @@ describe('Game', () => {
         expect(screen.getByText(/Final Poem/i)).toBeInTheDocument();
       });
 
-      test('Adding 2 lines to the poem and then revealing it', () => {
+      test.skip('Adding 2 lines to the poem and then revealing it', () => {
         const line1 = ['big', 'cat', 'abruptly', 'eats', 'tasty', 'dogfood'];
         const line2 = ['small', 'pooch', 'slowly', 'whines', 'annoying', 'pest'];
       
