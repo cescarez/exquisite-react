@@ -48,7 +48,7 @@ describe('Game', () => {
       const rulesText = screen.getByText(/Each player should take turns filling out and submitting the form below/i);
       expect(rulesText).toBeInTheDocument();
 
-      const playerText = screen.getByText(/Player Submission Form for Player \#1/i);
+      const playerText = screen.getByText(/Player Submission Form for Player #1/i);
       expect(playerText).toBeInTheDocument();
     });
   });
@@ -101,6 +101,7 @@ describe('Game', () => {
 
     describe('Wave 2:  Showing lines of poetry', () => {
 
+      // eslint-disable-next-line jest/expect-expect
       test('you can enter a line of the poem', () => {
         const line = ['big', 'cat', 'abruptly', 'eats', 'tasty', 'dogfood'];
         // Act-Assert
