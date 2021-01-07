@@ -18,8 +18,8 @@ const Game = () => {
   }).join(' ');
 
   const lineSubmitCallback = (newLine) => {
-    //cannot add a line if the final poem has already been revealed
-    if (submitted) {return};
+    //cannot add a line if the final poem has already been revealed -- currently commented out because the player submission form is no longer visible after the final poem is displayed
+    // if (submitted) {return};
 
     const newIndex = currentIndex + 1
     setIndex(newIndex);
@@ -49,9 +49,9 @@ const Game = () => {
         { exampleFormat }
       </p>
 
-      <RecentSubmission submission={lines.length > 0 ? lines[lines.length-1] : 'No previous lines have been submitted'} />    
+      { lines.length > 0 ? <RecentSubmission submission={lines[lines.length-1]} /> : <div></div> }    
 
-      <PlayerSubmissionForm index={currentIndex} sendSubmission={lineSubmitCallback} fields={FIELDS} /> 
+      { submitted ? <div></div> : <PlayerSubmissionForm index={currentIndex} sendSubmission={lineSubmitCallback} fields={FIELDS} />  }
 
       <FinalPoem isSubmitted={submitted} submissions={lines} revealPoem={revealPoemCallback} />
 

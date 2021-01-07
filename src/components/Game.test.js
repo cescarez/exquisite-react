@@ -80,8 +80,9 @@ describe('Game', () => {
           }
         }
 
+
         if (inputField !== undefined) {
-          console.log(`Entering ${ words[i] }`);
+          // console.log(`Entering ${ words[i] }`);
           userEvent.type(inputField, words[i]);
           expect(inputField.value).toEqual(words[i]);          
         }
