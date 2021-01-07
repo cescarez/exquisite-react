@@ -42,8 +42,7 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
   }
 
   const generateInputFields = (fields) => {
-    let i = 1;
-    return( fields.map((field) => {
+    return( fields.map((field, i) => {
       if (field.key) {
         return (
           <input 
@@ -58,7 +57,6 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
         );
       } else {
         const element = <div key={`line${index}_string${i}`}>{field}</div>;
-        i += 1;
         return element;
       }
     })
