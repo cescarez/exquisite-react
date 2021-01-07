@@ -15,7 +15,7 @@ const FinalPoem = ({isSubmitted, submissions, revealPoem}) => {
   const finalPoem = () => {
     let i = 0;
     return (
-      <section className="FinalPoem__revealed-poem-container">
+      <section className="FinalPoem__revealed-poem-retake-btn-container">
         <div className="FinalPoem__revealed-poem-container">
           {
             submissions.map((line) => {
