@@ -27,12 +27,14 @@ const Game = () => {
     const newLines = [...lines, newLine];
     setLines(newLines);
 
+    console.log(`newline: ${newLine}`)
     console.log(newLines); //delete before submission
   }
   
   const revealPoemCallback = () => {
     setSubmitted(true);
-    console.log(`submitted in Game: ${submitted}`); //delete before submission
+
+    // console.log(`submitted in Game: ${submitted}`); //delete before submission
   }
 
   return (
@@ -47,7 +49,7 @@ const Game = () => {
         { exampleFormat }
       </p>
 
-      <RecentSubmission submission={lines.length > 0 ? lines[lines.length-1].value : 'No previous lines have been submitted'} />    
+      <RecentSubmission submission={lines.length > 0 ? lines[lines.length-1] : 'No previous lines have been submitted'} />    
 
       <PlayerSubmissionForm index={currentIndex} sendSubmission={lineSubmitCallback} fields={FIELDS} /> 
 
