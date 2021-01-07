@@ -23,7 +23,7 @@ const FinalPoem = ({isSubmitted, submissions, revealPoem}) => {
         <div className="FinalPoem__revealed-poem-container">
           {
             submissions.map((line) => {
-              return <p>{line}</p>
+              return <p>{line.value}</p>
             })
           }
         </div>

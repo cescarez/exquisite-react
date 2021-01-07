@@ -24,13 +24,16 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
   const onLineSubmit = (event) => {
     event.preventDefault();
 
-    const newLine = fields.map((field)=> {
-      if (field.key) {
-        return formFields[field.key];
-      } else {
-        return field;
-      }
-    }).join(' ');
+    const newLine = {
+      key: `line${index}`,
+      value: fields.map((field)=> {
+        if (field.key) {
+          return formFields[field.key];
+        } else {
+          return field;
+        }
+      }).join(' ')
+    };
 
     sendSubmission(newLine);
 
