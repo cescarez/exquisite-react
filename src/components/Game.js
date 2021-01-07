@@ -5,7 +5,7 @@ import FinalPoem from './FinalPoem';
 import RecentSubmission from './RecentSubmission';
 
 const Game = () => {
-  const [currentIndex, setIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(1);
   const [lines, setLines] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
@@ -18,8 +18,7 @@ const Game = () => {
   }).join(' ');
 
   const lineSubmitCallback = (newLine) => {
-    const newIndex = currentIndex + 1
-    setIndex(newIndex);
+    setCurrentIndex(currentIndex + 1);
 
     const newLines = [...lines, newLine];
     setLines(newLines);

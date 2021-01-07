@@ -18,8 +18,7 @@ const FinalPoem = ({isSubmitted, submissions, revealPoem}) => {
         <div className="FinalPoem__revealed-poem-container">
           {
             submissions.map((line, i) => {
-              const element = <p key={`line${i}`}>{line}</p>
-              return element;
+              return <p key={`line${i}`}>{line}</p>;
             })
           }
         </div>

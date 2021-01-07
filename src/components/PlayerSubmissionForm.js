@@ -35,7 +35,6 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
         return field;
       }
     }).join(' ')
-
     sendSubmission(newLine);
 
     setFormFields(generateNewFormFields);
@@ -52,12 +51,11 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
             name={field.key} 
             placeholder={field.placeholder.substring(0,field.placeholder.length - 1)} //displayed string was changed to exclude number
             onChange={onInputChange}
-            className={formFields[field.key] === '' ? 'emptyField' : 'populatedField' }
+            className={formFields[field.key] ? 'populatedField' : 'emptyField' }
           />
         );
       } else {
-        const element = <div key={`line${index}_string${i}`}>{field}</div>;
-        return element;
+        return <div key={`line${index}_string${i}`}>{field}</div>;
       }
     })
     )
