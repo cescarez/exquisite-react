@@ -37,7 +37,7 @@ const FIELDS = [
 
 const INPUT_FIELDS = FIELDS.filter((element) => typeof element !== 'string');
 
-describe.skip('Game', () => {
+describe('Game', () => {
 
   describe('Wave 1:  Rendering Game', () => {
 
@@ -81,7 +81,7 @@ describe.skip('Game', () => {
         }
 
         if (inputField !== undefined) {
-          // console.log(`Entering ${ words[i] }`);
+          console.log(`Entering ${ words[i] }`);
           userEvent.type(inputField, words[i]);
           expect(inputField.value).toEqual(words[i]);          
         }

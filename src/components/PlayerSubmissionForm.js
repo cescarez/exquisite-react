@@ -24,16 +24,13 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
   const onLineSubmit = (event) => {
     event.preventDefault();
 
-    const newLine = {
-      key: `line${index}`,
-      value: fields.map((field)=> {
-        if (field.key) {
-          return formFields[field.key];
-        } else {
-          return field;
-        }
-      }).join(' ')
-    };
+    const newLine = fields.map((field)=> {
+      if (field.key) {
+        return formFields[field.key];
+      } else {
+        return field;
+      }
+    }).join(' ')
 
     sendSubmission(newLine);
 
@@ -48,10 +45,12 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
   }
 
   const generateInputFields = (fields) => {
+    let i = 0;
     return( fields.map((field) => {
       if (field.key) {
         return (
           <input 
+            key={`line${index}_${field.key}`}
             type='text' 
             value={formFields[field.key]}
             name={field.key} 
@@ -60,7 +59,9 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
           />
         );
       } else {
-        return (<div>{field}</div>);
+        i += 1;
+        const element = <div key={`line${index}_string${i}`}>{field}</div>;
+        return element;
       }
     })
     )

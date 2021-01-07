@@ -4,11 +4,6 @@ import './FinalPoem.css';
 
 const FinalPoem = ({isSubmitted, submissions, revealPoem}) => {
 
-  // const onRevealPoem = (event) => {
-  //   // event.preventDefault();
-  //   return ();
-  // }
-
   const revealButton = () => {
     return (
       <div className="FinalPoem__reveal-btn-container">
@@ -18,12 +13,15 @@ const FinalPoem = ({isSubmitted, submissions, revealPoem}) => {
   }
 
   const finalPoem = () => {
+    let i = 0;
     return (
       <section className="FinalPoem__revealed-poem-container">
         <div className="FinalPoem__revealed-poem-container">
           {
             submissions.map((line) => {
-              return <p>{line.value}</p>
+              i += 1
+              const element = <p key={`line${i}`}>{line}</p>
+              return element;
             })
           }
         </div>
