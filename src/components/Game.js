@@ -18,23 +18,15 @@ const Game = () => {
   }).join(' ');
 
   const lineSubmitCallback = (newLine) => {
-    //cannot add a line if the final poem has already been revealed -- currently commented out because the player submission form is no longer visible after the final poem is displayed
-    // if (submitted) {return};
-
     const newIndex = currentIndex + 1
     setIndex(newIndex);
 
     const newLines = [...lines, newLine];
     setLines(newLines);
-
-    console.log(`newline: ${newLine}`)
-    console.log(newLines); //delete before submission
   }
   
   const revealPoemCallback = () => {
     setSubmitted(true);
-
-    // console.log(`submitted in Game: ${submitted}`); //delete before submission
   }
 
   return (
