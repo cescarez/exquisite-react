@@ -42,7 +42,7 @@ describe('Wave 1:  PlayerSubmissionForm', () => {
 
     // Assert
     inputFields.forEach(field => {
-      const regex = new RegExp('^' + field.placeholder + '$', 'i');
+      const regex = new RegExp('^' + field.placeholder.substring(0,field.placeholder.length-1) + '$', 'i'); //search string was changed to exclude number
       const inputField = screen.getByPlaceholderText(regex);
       expect(inputField).toBeInTheDocument();
     });

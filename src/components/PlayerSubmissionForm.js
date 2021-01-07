@@ -5,14 +5,16 @@ import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
 
-  const [formFields, setFormFields] = useState({
-    adj1: '',
-    noun1: '',
-    adv: '',
-    verb: '',
-    adj2: '',
-    noun2: '',
-  });
+  const generateNewFormFields = () => {
+    const newFormFields = {};
+    fields.forEach((field) => {
+      newFormFields[field.key] = '';
+    })
+
+    return newFormFields;
+  }
+
+  const [formFields, setFormFields] = useState(generateNewFormFields);
 
   const onInputChange = (event) => {
     setFormFields({
@@ -34,14 +36,7 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
 
     sendSubmission(newLine);
 
-    setFormFields({
-      adj1: '',
-      noun1: '',
-      adverb1: '',
-      verb1: '',
-      adj2: '',
-      noun2: '',
-    });
+    setFormFields(generateNewFormFields);
   }
 
   const generateInputFields = (fields) => {
@@ -54,8 +49,9 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
             type='text' 
             value={formFields[field.key]}
             name={field.key} 
-            placeholder={field.placeholder}
+            placeholder={field.placeholder.substring(0,field.placeholder.length - 1)} //displayed string was changed to exclude number
             onChange={onInputChange}
+            className={formFields[field.key] === '' ? 'emptyField' : 'populatedField' }
           />
         );
       } else {

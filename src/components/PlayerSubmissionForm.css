@@ -38,3 +38,11 @@
 .PlayerSubmissionForm__input--invalid::placeholder {
   color: black;
 }
+
+.emptyField {
+  background-color: pink;
+}
+
+.populatedField {
+
+}
