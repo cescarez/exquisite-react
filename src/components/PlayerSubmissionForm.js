@@ -8,7 +8,9 @@ const PlayerSubmissionForm = ({index, sendSubmission, fields}) => {
   const generateNewFormFields = () => {
     const newFormFields = {};
     fields.forEach((field) => {
-      newFormFields[field.key] = '';
+      if (field.key) {
+        newFormFields[field.key] = '';
+      }
     })
 
     return newFormFields;
