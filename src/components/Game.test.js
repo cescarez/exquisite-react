@@ -123,7 +123,7 @@ describe('Game', () => {
         expect(screen.getByText(/Final Poem/i)).toBeInTheDocument();
       });
 
-      test.skip('Adding 2 lines to the poem and then revealing it', () => {
+      test('Adding 2 lines to the poem and then revealing it', () => {
         const line1 = ['big', 'cat', 'abruptly', 'eats', 'tasty', 'dogfood'];
         const line2 = ['small', 'pooch', 'slowly', 'whines', 'annoying', 'pest'];
       
@@ -136,6 +136,8 @@ describe('Game', () => {
         // Submit the poem
         const finishPoemButton = screen.getByDisplayValue(/We are finished: Reveal the Poem/i);
         userEvent.click(finishPoemButton);
+
+
 
         // Assert the poem is displayed
         line1.forEach((word) => {
@@ -166,7 +168,7 @@ describe('Game', () => {
         expect(screen.getByText(/Final Poem/i)).toBeInTheDocument();
       });
 
-      test.skip('Adding 2 lines to the poem and then revealing it', () => {
+      test('Adding 2 lines to the poem and then revealing it', () => {
         const line1 = ['big', 'cat', 'abruptly', 'eats', 'tasty', 'dogfood'];
         const line2 = ['small', 'pooch', 'slowly', 'whines', 'annoying', 'pest'];
       
